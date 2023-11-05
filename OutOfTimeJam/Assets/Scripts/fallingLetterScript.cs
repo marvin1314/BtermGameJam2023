@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class fallingNumberScript : MonoBehaviour
 {
-    public Transform numberDrop;
     public GameObject goodFall;
     public GameObject badFall;
     float time;
