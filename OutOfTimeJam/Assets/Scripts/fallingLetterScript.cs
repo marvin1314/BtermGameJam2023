@@ -7,16 +7,21 @@ public class fallingNumberScript : MonoBehaviour
     public Transform numberDrop;
     public GameObject goodFall;
     public GameObject badFall;
-    float time = delay;
+    float time;
+    public float delay;
+    public int leftSide;
+    public int rightSide;
+    public int topScreen;
     //required input values:
     //delay for delay between drops
     //leftSide for x-position of left side of screen
     //rightSide for x-position of right side of screen
+    //topScreen for y-position of the top of the screen
     
     // Start is called before the first frame update
     void Start()
     {
-      
+        time = delay;
     }
 
     // Update is called once per frame
@@ -24,7 +29,14 @@ public class fallingNumberScript : MonoBehaviour
     {
         if (time <= 0) {
             int randomDropSpot = Random.Range(leftSide, rightSide);
-            instantiate gameObject prefab name;
+            int randomItem = Random.Range(1,3);
+            if (randomItem < 3)
+            {
+                Instantiate(goodFall, new Vector2(randomDropSpot,topScreen), Quaternion.identity);
+            }
+            else {
+                Instantiate(badFall, new Vector2(randomDropSpot, topScreen), Quaternion.identity);
+            }
             time = delay;
         }
         time -= Time.deltaTime;
