@@ -24,6 +24,6 @@ public class playerCollision : MonoBehaviour
     }
     void die()
     {
-        //game over or restart
+        Scenemanager.loadSceneAsync(0);
     }
 }
